@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+</head>
+<body>
+<ul id="product-list">
+</ul>
+<script>
+    const products = [
+        {id: 'p1', name: '상품1'},
+        {id: 'p2', name: '상품2'},
+        {id: 'p3', name: '상품3'}
+    ]
+    const productListEl = document.getElementById('product-list');
+    products.map(product => {
+        const newEl = document.createElement('li');
+        newEl.id = product.id;
+        newEl.innerText = product.name;
+        return newEl;
+    }).forEach(productEl => {
+        productListEl.appendChild(productEl);
+    });
+    // productListEl.after("<div>오류</div>");
+    productListEl.insertAdjacentHTML('beforebegin', "<p>추가된 문장1</p>")
+    productListEl.insertAdjacentHTML('afterend', "<p>추가된 문장2</p>")
+</script>
+</body>
+</html>

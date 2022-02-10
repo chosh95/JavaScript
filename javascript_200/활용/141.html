@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM 이해하기</title>
+</head>
+<body>
+    <div id="div1">Hello DOM</div>
+    <ul>
+        <li>list 1</li>
+        <li>list 2</li>
+<!--        <li>list n</li>-->
+        <li>list 3</li>
+    </ul>
+    <script>
+        const div1El = document.getElementById('div1');
+        console.log(div1El.innerText);
+        console.log(div1El.innerHTML);
+
+        const ul = document.body.children[1];
+        console.log(ul.children.length);
+
+        const list3 = ul.children.item(2);
+        console.log(list3);
+        console.log(list3.previousElementSibling);
+        console.log(list3.previousSibling);
+        console.log(list3.previousSibling.previousSibling);
+    </script>
+</body>
+</html>
