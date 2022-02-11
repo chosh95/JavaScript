@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event listener</title>
+    <script>
+        const inputContainer = document.getElementById("inputContainer");
+        console.log(`inputContainer : ${inputContainer}`);
+        document.addEventListener('DOMContentLoaded', e => {
+            const inputContainer = document.getElementById("inputContainer");
+            console.log(`inputContainer after DOM Loaded : ${inputContainer}`);
+
+            const inputEl = inputContainer.querySelector('input');
+            inputEl.addEventListener('keydown', e => {
+                console.log(`keyCode : ${e.key}`);
+            });
+
+            const buttonEl = inputContainer.querySelector('button');
+            buttonEl.addEventListener('click', e => {
+                console.log(e.target);
+                console.log(`input value : ${inputEl.value}`);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="inputContainer">
+        <input type="test">
+        <button>버튼</button>
+    </div>
+</body>
+</html>
