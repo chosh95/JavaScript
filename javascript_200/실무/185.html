@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/release/v5.5.0/css/all.css">
+    <link rel="stylesheet" href="style.css">
+    <title>text editor</title>
+</head>
+<body>
+<div class="toolbar">
+    <a href="" data-command="h1">H1</a>
+    <a href="" data-command="h2">H2</a>
+    <a href="" data-command="h3">H3</a>
+    <a href="" data-command="p" style="margin-right: 8px">P</a>
+    <a href="" data-command="bold">
+        <i class="fa fa-bold"></i>
+    </a>
+    <a href="" data-command="italic">
+        <i class="fa fa-italic"></i>
+    </a>
+</div>
+<div class="editor" contenteditable="true">
+    <h1>simple editor</h1>
+    <p>simple simple editor</p>
+</div>
+<script>
+    document.querySelectorAll('.toolbar a')
+        .forEach(aEl => aEl.addEventListener('click'), function (e) {
+            e.preventDefault();
+            const command = aEl.dataset.command;
+
+            if (command == 'h1' || command == 'h2' || command == 'h3' || command == 'p') {
+                document.execCommand('formatBlock', false, command);
+            } else {
+                document.execCommand(command);
+            }
+        });
+</script>
+</body>
+</html>
