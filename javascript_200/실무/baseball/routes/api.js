@@ -36,14 +36,14 @@ async function makeGame(req, res, next) {
 
     try {
         const id = services.makeGame(digit);
-        res.send(id);
+        res.send({id});
     } catch (err) {
         next(checkError(err));
     }
 }
 
 async function getGame(req, res, next) {
-    const id = res.params.id;
+    const id = req.params.id;
 
     try {
         res.send(services.getGame(id));
